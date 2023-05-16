@@ -1,4 +1,5 @@
 <script>
+	import Button from '$lib/components/Button.svelte';
 	import './style.css';
 </script>
 
@@ -8,9 +9,19 @@
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/protected">Protected</a></li>
-			<li><a href="/signout" class="btn btn-signout">SignOut</a></li>
-			<li><a href="/signin" class="btn btn-signin">SignIn</a></li>
-			<li><a href="/signup" class="btn btn-signup">SignUp</a></li>
+			<li>
+				<Button dark={true} mode="filled" color="danger" link={true} href="/auth/signin"
+					>SginOut</Button
+				>
+			</li>
+			<li>
+				<Button dark={true} mode="outlined" link={true} href="/auth/signin">SginIn</Button>
+			</li>
+			<li>
+				<Button dark={true} mode="filled" color="success" link={true} href="/auth/signup"
+					>SginUp</Button
+				>
+			</li>
 		</ul>
 	</nav>
 </header>

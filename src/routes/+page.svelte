@@ -20,11 +20,11 @@
 		<h1>Give it a Test Go</h1>
 		<div class="actions">
 			<span>
-				<Button mode="outlined" color="danger">SignIn</Button>
+				<Button mode="outlined" color="danger" link={true} href="/auth/signin">SignIn</Button>
 			</span>
 
 			<span class="ml">
-				<Button mode="filled" color="shadow">Register</Button>
+				<Button mode="filled" color="shadow" link={true} href="/auth/signup">Register</Button>
 			</span>
 		</div>
 	</main>
@@ -47,7 +47,7 @@
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 	}
 
 	.ml {

@@ -1,12 +1,20 @@
-<script>
+<script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Icon from '$lib/components/Icon.svelte';
+
+	export let form: FormData;
+
+	console.log(form);
 </script>
 
-<div class="form-container">
-	<h1 class="form-title">Sign-in</h1>
+{#if form?.message}
+	<pre>{form?.message}</pre>
+{/if}
 
-	<form action="" method="POST">
+<div class="form-container">
+	<h1 class="form-title">Sign In</h1>
+
+	<form action="?/signin" method="POST">
 		<div class="form-input">
 			<label for="email"> Email </label>
 			<input id="email" name="email" type="email" />
@@ -14,7 +22,7 @@
 
 		<div class="form-input">
 			<label for="password" aria-hidden="true"> Password </label>
-			<input id="password" name="Password" type="password" />
+			<input id="password" name="password" type="password" />
 		</div>
 
 		<div class="form-actions">
@@ -66,8 +74,8 @@
 
 <style>
 	.form-container {
-		width: min(80%, 500px);
-		margin: 1.5rem auto;
+		width: min(80%, 600px);
+		margin: 0rem auto;
 		background: black;
 		padding: 3rem 3rem;
 		color: white;
@@ -81,6 +89,9 @@
 		margin-bottom: 2rem;
 	}
 
+	label {
+		font-size: 1.2rem;
+	}
 	.form-input {
 		width: 100%;
 		display: flex;

@@ -1,73 +1,82 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
+	import ConfirmationSent from '$lib/components/ConfirmationSent.svelte';
 	import Icon from '$lib/components/Icon.svelte';
+
+	export let form;
+
+	let emailInput = '';
 </script>
 
-<div class="form-container">
-	<h1 class="form-title">Sign-up</h1>
+{#if form?.success}
+	<ConfirmationSent email={form?.email} />
+{:else}
+	<div class="form-container">
+		<h1 class="form-title">Sign Up</h1>
 
-	<form action="" method="POST">
-		<div class="form-input">
-			<label for="name"> Name </label>
-			<input id="name" name="name" type="name" />
-		</div>
+		<form action="?/signup" method="POST">
+			<div class="form-input">
+				<label for="name"> Name </label>
+				<input id="name" name="name" type="name" />
+			</div>
 
-		<div class="form-input">
-			<label for="email"> Email </label>
-			<input id="email" name="email" type="email" />
-		</div>
+			<div class="form-input">
+				<label for="email"> Email </label>
+				<input id="email" name="email" type="email" bind:value={emailInput} />
+			</div>
 
-		<div class="form-input">
-			<label for="password" aria-hidden="true"> Password </label>
-			<input id="password" name="Password" type="password" />
-		</div>
+			<div class="form-input">
+				<label for="password" aria-hidden="true"> Password </label>
+				<input id="password" name="password" type="password" />
+			</div>
 
-		<div class="form-actions">
-			<Button dark={true} type="submit" mode="filled" color="success">sign in</Button>
-		</div>
-	</form>
-
-	<div class="socials-container">
-		<form method="POST">
-			<h3>Continue with:</h3>
-			<div class="socials-actions-container">
-				<Button dark={true} type="submit" mode="outlined" width="full">
-					<span class="button-content">
-						<span class="button-icon">
-							<Icon href="/icons/icons8-github.svg" />
-						</span>
-						<span class="button-caption"> GitHub </span>
-					</span>
-				</Button>
-				<Button dark={true} type="submit" mode="outlined" width="full">
-					<span class="button-content">
-						<span class="button-icon">
-							<Icon href="/icons/icons8-google.svg" />
-						</span>
-						<span class="button-caption"> Google </span>
-					</span>
-				</Button>
-				<Button dark={true} type="submit" mode="outlined" width="full">
-					<span class="button-content">
-						<span class="button-icon">
-							<Icon href="/icons/icons8-discord.svg" />
-						</span>
-						<span class="button-caption"> Discord </span>
-					</span>
-				</Button>
-
-				<Button dark={true} type="submit" mode="outlined" width="full">
-					<span class="button-content">
-						<span class="button-icon">
-							<Icon href="/icons/icons8-facebook.svg" />
-						</span>
-						<span class="button-caption"> FaceBook </span>
-					</span>
-				</Button>
+			<div class="form-actions">
+				<Button dark={true} type="submit" mode="filled" color="success">sign up</Button>
 			</div>
 		</form>
+
+		<div class="socials-container">
+			<form method="POST">
+				<h3>Continue with:</h3>
+				<div class="socials-actions-container">
+					<Button dark={true} type="submit" mode="outlined" width="full">
+						<span class="button-content">
+							<span class="button-icon">
+								<Icon href="/icons/icons8-github.svg" />
+							</span>
+							<span class="button-caption"> GitHub </span>
+						</span>
+					</Button>
+					<Button dark={true} type="submit" mode="outlined" width="full">
+						<span class="button-content">
+							<span class="button-icon">
+								<Icon href="/icons/icons8-google.svg" />
+							</span>
+							<span class="button-caption"> Google </span>
+						</span>
+					</Button>
+					<Button dark={true} type="submit" mode="outlined" width="full">
+						<span class="button-content">
+							<span class="button-icon">
+								<Icon href="/icons/icons8-discord.svg" />
+							</span>
+							<span class="button-caption"> Discord </span>
+						</span>
+					</Button>
+
+					<Button dark={true} type="submit" mode="outlined" width="full">
+						<span class="button-content">
+							<span class="button-icon">
+								<Icon href="/icons/icons8-facebook.svg" />
+							</span>
+							<span class="button-caption"> FaceBook </span>
+						</span>
+					</Button>
+				</div>
+			</form>
+		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	h3 {
@@ -75,8 +84,8 @@
 		text-transform: capitalize;
 	}
 	.form-container {
-		width: min(80%, 500px);
-		margin: 2rem auto;
+		width: min(80%, 600px);
+		margin: 0rem auto;
 		background: black;
 		padding: 3rem 3rem;
 		color: white;
@@ -88,6 +97,10 @@
 		text-transform: capitalize;
 		font-weight: bold;
 		margin-bottom: 2rem;
+	}
+
+	label {
+		font-size: 1.2rem;
 	}
 
 	.form-input {

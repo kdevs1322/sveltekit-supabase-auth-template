@@ -3,3 +3,35 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.gradient-1 {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    width: min(50vw, 680px);
+    height: min(40vh, 400px);
+
+    background: linear-gradient(to right, rgb(254, 9, 9) 10%, rgb(252, 197, 138), rgb(244, 85, 85), rgb(239, 255, 94), rgb(255, 212, 133), rgb(255, 188, 164), rgb(255, 193, 193));
+    background-blend-mode: darken;
+    filter: blur(130px);
+    transform-origin: center;
+    transform: rotateZ(-55deg);
+
+    z-index: -1;
+}
+
+.gradient-2 {
+    position: absolute;
+    top: 5vh;
+    right: 0;
+    width: min(50vw, 600px);
+    height: min(40vh, 400px);
+
+    background: linear-gradient(to left, rgb(0, 0, 255), rgb(2, 140, 175), rgb(255, 87, 210), rgb(247, 0, 255), orange, rgb(198, 55, 255), rgb(255, 14, 255));
+    background-blend-mode: soft-light;
+    filter: blur(140px);
+    transform-origin: center;
+    transform: rotateZ(35deg);
+
+    z-index: -1;
+}

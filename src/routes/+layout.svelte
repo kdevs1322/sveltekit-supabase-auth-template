@@ -101,12 +101,11 @@
 		position: relative;
 		width: 100%;
 		min-height: 100vh;
-		/* background: rgb(7, 6, 25); */
-		background: rgb(217, 217, 217);
+		background: rgb(7, 6, 25);
+		/* background: rgb(217, 217, 217); */
 		padding: 20px 80px;
 		z-index: 1;
-		color: rgb(0, 0, 0);
-		/* color: rgb(243, 243, 243); */
+		color: rgb(243, 243, 243);
 		overflow: hidden;
 	}
 </style>

@@ -6,7 +6,6 @@
 	export let href: string = '';
 	export let dark: boolean = false;
 	export let width: 'full' | 'auto' = 'auto';
-	export let formAction: string = '';
 </script>
 
 {#if link}
@@ -19,17 +18,6 @@
 		>
 			<slot />
 		</a>
-	</button>
-{:else if formAction}
-	<button
-		{type}
-		class="btn {mode} {mode === 'filled' && color}"
-		class:dark
-		class:full={width === 'full'}
-		formaction={formAction}
-		on:click
-	>
-		<slot />
 	</button>
 {:else}
 	<button

@@ -11,10 +11,10 @@ export const actions: Actions = {
         });
 
         if (err) {
-            if (err instanceof AuthApiError) {
-                return fail(err.status, {
-                    message: err.message
-                });
+            if (err instanceof AuthApiError && err.status === 400) {
+                return fail(400, {
+                    message: "Wrong email or password. Please try again."
+                })
             }
 
             return fail(500, {

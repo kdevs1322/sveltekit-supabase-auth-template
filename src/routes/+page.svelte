@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+
+	$: console.log(data.session?.user);
 </script>
 
 <section>
@@ -37,7 +39,10 @@
 				</div>
 			</div>
 		{:else}
-			<h1>Welcome Back {data.session.user.user_metadata.name}!!!!</h1>
+			<h1>
+				Welcome Back {data.session.user.user_metadata.name ||
+					data.session.user.user_metadata.user_name}!!!!
+			</h1>
 		{/if}
 	</main>
 </section>

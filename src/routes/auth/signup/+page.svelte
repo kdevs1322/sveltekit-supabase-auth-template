@@ -30,6 +30,10 @@
 				<input id="password" name="password" type="password" />
 			</div>
 
+			{#if form?.message}
+				<pre class="text-danger">{form?.message}</pre>
+			{/if}
+
 			<div class="form-actions">
 				<Button dark={true} type="submit" mode="filled" color="success">sign up</Button>
 			</div>
@@ -147,5 +151,8 @@
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		align-items: center;
+	}
+	.text-danger {
+		color: rgb(255, 69, 69);
 	}
 </style>

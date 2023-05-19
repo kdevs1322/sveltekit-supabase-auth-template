@@ -39,39 +39,39 @@
 			<form method="POST">
 				<h3>Continue with:</h3>
 				<div class="socials-actions-container">
-					<Button dark={true} type="submit" mode="outlined" width="full">
+					<button class="btn btn-outlined btn-dark" formAction="?/signup&provider=github">
 						<span class="button-content">
 							<span class="button-icon">
 								<Icon href="/icons/icons8-github.svg" />
 							</span>
 							<span class="button-caption"> GitHub </span>
 						</span>
-					</Button>
-					<Button dark={true} type="submit" mode="outlined" width="full">
+					</button>
+					<button class="btn btn-outlined btn-dark" formAction="?/signup&provider=google">
 						<span class="button-content">
 							<span class="button-icon">
 								<Icon href="/icons/icons8-google.svg" />
 							</span>
 							<span class="button-caption"> Google </span>
 						</span>
-					</Button>
-					<Button dark={true} type="submit" mode="outlined" width="full">
+					</button>
+					<button class="btn btn-outlined btn-dark" formAction="?/signup&provider=discord">
 						<span class="button-content">
 							<span class="button-icon">
 								<Icon href="/icons/icons8-discord.svg" />
 							</span>
 							<span class="button-caption"> Discord </span>
 						</span>
-					</Button>
+					</button>
 
-					<Button dark={true} type="submit" mode="outlined" width="full">
+					<button class="btn btn-outlined btn-dark" formAction="?/signup&provider=facebook">
 						<span class="button-content">
 							<span class="button-icon">
 								<Icon href="/icons/icons8-facebook.svg" />
 							</span>
 							<span class="button-caption"> FaceBook </span>
 						</span>
-					</Button>
+					</button>
 				</div>
 			</form>
 		</div>
@@ -133,6 +133,41 @@
 
 	.socials-container {
 		margin-top: 1.2rem;
+	}
+
+	.btn {
+		padding: 0;
+		margin: 0;
+		border: none;
+		background: none;
+		padding: 0.5rem 1.2rem;
+		font-size: 1.2rem;
+		font-weight: 500;
+		border-radius: 5px;
+		border: 1px solid black;
+		background: black;
+		color: white;
+	}
+
+	.btn-outlined {
+		background: transparent;
+		border: 1px solid black;
+		color: black;
+	}
+	.btn-outlined:hover {
+		background: rgb(0, 0, 0);
+		color: white;
+	}
+
+	.btn-dark {
+		border: 1px solid rgb(255, 255, 255);
+		color: rgb(255, 255, 255);
+	}
+
+	.btn-dark:hover {
+		border: 1px solid rgb(255, 255, 255);
+		background: white;
+		color: black;
 	}
 
 	.socials-actions-container {

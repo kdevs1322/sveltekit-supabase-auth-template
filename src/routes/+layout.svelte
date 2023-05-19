@@ -5,6 +5,7 @@
 	import { supabaseClient } from '$lib/database/supabase';
 	import { invalidate } from '$app/navigation';
 	import type { LayoutData } from './$types';
+	import { enhance, type SubmitFunction } from '$app/forms';
 
 	export let data: LayoutData;
 
@@ -21,6 +22,14 @@
 
 		return () => subscription.unsubscribe();
 	});
+
+	const submitLogout: SubmitFunction = async ({ cancel }) => {
+		const { error } = await supabase.auth.signOut();
+		if (error) {
+			alert(error.message);
+		}
+		cancel();
+	};
 </script>
 
 <header>
@@ -31,7 +40,7 @@
 			{#if session}
 				<li><a href="/protected">Protected</a></li>
 				<li>
-					<form action="/auth/signout" method="POST">
+					<form action="/auth/signout" method="POST" use:enhance={submitLogout}>
 						<Button type="submit" dark={true} mode="filled" color="danger">Sgin Out</Button>
 					</form>
 				</li>

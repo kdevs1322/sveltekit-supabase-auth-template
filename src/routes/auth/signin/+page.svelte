@@ -1,15 +1,9 @@
-<script lang="ts">
+<script>
 	import Button from '$lib/components/Button.svelte';
 	import Icon from '$lib/components/Icon.svelte';
 
-	export let form: FormData;
-
-	console.log(form);
+	export let form;
 </script>
-
-{#if form?.message}
-	<pre>{form?.message}</pre>
-{/if}
 
 <div class="form-container">
 	<h1 class="form-title">Sign In</h1>
@@ -24,7 +18,9 @@
 			<label for="password" aria-hidden="true"> Password </label>
 			<input id="password" name="password" type="password" />
 		</div>
-
+		{#if form?.message}
+			<pre class="text-danger">{form?.message}</pre>
+		{/if}
 		<div class="form-actions">
 			<Button dark={true} type="submit" mode="filled" color="success">sign in</Button>
 		</div>
@@ -136,5 +132,8 @@
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		align-items: center;
+	}
+	.text-danger {
+		color: rgb(255, 69, 69);
 	}
 </style>

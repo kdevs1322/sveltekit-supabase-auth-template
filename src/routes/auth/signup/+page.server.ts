@@ -19,9 +19,9 @@ export const actions: Actions = {
         });
 
         if (err) {
-            if (err instanceof AuthApiError && err.status === 400) {
-                return fail(400, {
-                    message: "Invalid email or password"
+            if (err instanceof AuthApiError) {
+                return fail(err.status, {
+                    message: err.message
                 });
             }
             return fail(500, {
